@@ -15,6 +15,9 @@
     <ul>
         {foreach $posts as $post}
             <li>
+                {if $post.image}
+                    <img src="{$post.image}" alt="{$post.title}" width="200"><br>
+                {/if}
                 <a href="/post/{$post.id}">{$post.title}</a>
                 ({$post.published_at}, просмотров: {$post.views})
             </li>
