@@ -2,20 +2,18 @@
 
 {block name=content}
     {foreach $categories as $category}
-        <h2>{$category.name}</h2>
-        <ul>
-            {foreach $category.posts as $post}
-                <li>
-                    {if $post.image}
-                        <img src="{$post.image}" alt="{$post.title}" width="200"><br>
-                    {/if}
-                    <a href="/post/{$post.id}">{$post.title}</a>
-                    ({$post.published_at}, просмотров: {$post.views})
-                </li>
-            {/foreach}
-        </ul>
-        <a href="/category/{$category.id}">Все статьи</a>
+        <section class="mb-5">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h2 class="h3 mb-0">{$category.name}</h2>
+                <a href="/category/{$category.id}" class="btn btn-outline-primary btn-sm">Все статьи</a>
+            </div>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                {foreach $category.posts as $post}
+                    <div class="col">{include file="_post_card.tpl"}</div>
+                {/foreach}
+            </div>
+        </section>
     {foreachelse}
-        <p>Статей пока нет</p>
+        <p class="text-muted">Статей пока нет</p>
     {/foreach}
 {/block}

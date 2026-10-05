@@ -23,4 +23,6 @@ $router->get('/', [new HomeController($categories, $posts, $view), 'index']);
 $router->get('/category/(\d+)', [new CategoryController($categories, $posts, $view), 'show']);
 $router->get('/post/(\d+)', [new PostController($categories, $posts, $view), 'show']);
 
-$router->dispatch($_SERVER['REQUEST_URI']);
+if (!$router->dispatch($_SERVER['REQUEST_URI'])) {
+    $view->notFound();
+}

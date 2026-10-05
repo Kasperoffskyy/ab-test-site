@@ -1,0 +1,18 @@
+@use 'variables' as *;
+
+body {
+    background-color: $bg !important;
+    color: $text;
+}
+
+a {
+    color: $primary;
+
+    &:hover {
+        color: $primary-dark;
+    }
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+}

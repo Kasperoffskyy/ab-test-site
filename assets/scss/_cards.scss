@@ -1,0 +1,29 @@
+@use 'variables' as *;
+
+// Карточка статьи
+.card {
+    border: none;
+    border-radius: $radius;
+    overflow: hidden;
+    box-shadow: $shadow !important;
+    transition: transform 0.2s, box-shadow 0.2s;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: $shadow-hover !important;
+    }
+
+    // Картинки одной высоты, без искажений
+    .card-img-top {
+        height: 180px;
+        object-fit: cover;
+    }
+
+    .card-title a:hover {
+        color: $primary !important;
+    }
+
+    .card-footer {
+        border-top: none;
+    }
+}

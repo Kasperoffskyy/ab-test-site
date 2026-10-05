@@ -11,7 +11,8 @@ class Router
         $this->routes[$pattern] = $handler;
     }
 
-    public function dispatch(string $uri): void
+    // Возвращает false, если подходящий маршрут не найден
+    public function dispatch(string $uri): bool
     {
         $path = parse_url($uri, PHP_URL_PATH);
 
@@ -19,11 +20,10 @@ class Router
             if (preg_match('#^' . $pattern . '$#', $path, $matches)) {
                 array_shift($matches);
                 $handler(...$matches);
-                return;
+                return true;
             }
         }
 
-        http_response_code(404);
-        echo 'Страница не найдена';
+        return false;
     }
 }

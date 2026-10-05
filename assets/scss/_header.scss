@@ -1,0 +1,11 @@
+@use 'variables' as *;
+
+// Шапка: вместо тёмной bootstrap-шапки — фирменный цвет
+.navbar {
+    background-color: $primary !important;
+
+    .navbar-brand {
+        font-weight: 700;
+        letter-spacing: 0.5px;
+    }
+}

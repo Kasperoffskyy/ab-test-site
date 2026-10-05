@@ -7,7 +7,7 @@ require __DIR__ . '/vendor/autoload.php';
 $config = require __DIR__ . '/config.php';
 $db = Database::connect($config['db']);
 
-$postsCount = (int) ($argv[1] ?? 40);
+$postsCount = 40;
 
 $categories = [
     'PHP' => 'Статьи о языке PHP: синтаксис, новые версии, лучшие практики.',

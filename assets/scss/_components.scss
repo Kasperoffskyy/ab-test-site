@@ -1,0 +1,46 @@
+@use 'variables' as *;
+
+// Кнопки
+.btn-primary {
+    background-color: $primary;
+    border-color: $primary;
+
+    &:hover {
+        background-color: $primary-dark;
+        border-color: $primary-dark;
+    }
+}
+
+.btn-outline-primary {
+    color: $primary;
+    border-color: $primary;
+
+    &:hover {
+        background-color: $primary;
+        border-color: $primary;
+    }
+}
+
+// Метки категорий на странице статьи
+.badge.text-bg-primary {
+    background-color: $primary !important;
+    font-weight: 500;
+    padding: 0.5em 0.8em;
+}
+
+// Пагинация
+.pagination .page-link {
+    color: $primary;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: $primary;
+    border-color: $primary;
+    color: #fff;
+}
+
+// Текст статьи
+article {
+    border-radius: $radius;
+    line-height: 1.7;
+}

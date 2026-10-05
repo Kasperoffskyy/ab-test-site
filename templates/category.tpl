@@ -4,35 +4,30 @@
 
 {block name=content}
     <h1>{$category.name}</h1>
-    <p>{$category.description}</p>
+    <p class="lead text-muted">{$category.description}</p>
 
-    <p>
-        Сортировка:
-        <a href="?sort=date">по дате</a> |
-        <a href="?sort=views">по просмотрам</a>
-    </p>
+    <div class="btn-group mb-4">
+        <a href="?sort=date" class="btn btn-outline-secondary btn-sm {if $sort == 'date'}active{/if}">По дате</a>
+        <a href="?sort=views" class="btn btn-outline-secondary btn-sm {if $sort == 'views'}active{/if}">По просмотрам</a>
+    </div>
 
-    <ul>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
         {foreach $posts as $post}
-            <li>
-                {if $post.image}
-                    <img src="{$post.image}" alt="{$post.title}" width="200"><br>
-                {/if}
-                <a href="/post/{$post.id}">{$post.title}</a>
-                ({$post.published_at}, просмотров: {$post.views})
-            </li>
+            <div class="col">{include file="_post_card.tpl"}</div>
+        {foreachelse}
+            <p class="text-muted">В этой категории пока нет статей</p>
         {/foreach}
-    </ul>
+    </div>
 
     {if $totalPages > 1}
-        <p>
-            {for $i = 1 to $totalPages}
-                {if $i == $page}
-                    <b>{$i}</b>
-                {else}
-                    <a href="?sort={$sort}&page={$i}">{$i}</a>
-                {/if}
-            {/for}
-        </p>
+        <nav class="mt-4">
+            <ul class="pagination">
+                {for $i = 1 to $totalPages}
+                    <li class="page-item {if $i == $page}active{/if}">
+                        <a class="page-link" href="?sort={$sort}&page={$i}">{$i}</a>
+                    </li>
+                {/for}
+            </ul>
+        </nav>
     {/if}
 {/block}

@@ -1,0 +1,10 @@
+{
+    "private": true,
+    "scripts": {
+        "build": "sass assets/scss/main.scss public/css/main.css --style=compressed --no-source-map",
+        "watch": "sass assets/scss/main.scss public/css/main.css --watch --poll --no-source-map"
+    },
+    "devDependencies": {
+        "sass": "^1.80.0"
+    }
+}
